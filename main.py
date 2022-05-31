@@ -4,8 +4,9 @@ The internal documentation didn't use the siunitx package, but I am, and find th
 I made this script as a way to convert the string quickly and to avoid mistyping the numerical value and unit.
 """
 
+
 def update_string():
-    old_string = '6~GeV'
+    old_string = input("Pase LaTeX string:")
     if '$' in old_string:
         math_mode(old_string)
 
@@ -28,6 +29,7 @@ def math_mode(old_string):
     print()
     print(f'${math_string[0:-index]}\SI{{{"".join(numerical_value)}}}{{\\{units}}}$')
 
+
 def regular_string(old_string):
     index = 0
     for i, x in enumerate(old_string):
@@ -40,4 +42,3 @@ def regular_string(old_string):
 
 if __name__ == '__main__':
     update_string()
-
